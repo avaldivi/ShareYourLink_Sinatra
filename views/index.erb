@@ -1,6 +1,7 @@
 <ul>
 <% @links.each do |link| %>
  <li>
+   <iframe width="100" height="100" src="<%= link.link %>" frameborder="0" allowfullscreen></iframe>
    <p><a href="<%= link.link %>"><%= link.link %></a> from <%= link.author %></p>
    <p><%= link.comment %></p> 
  </li>
