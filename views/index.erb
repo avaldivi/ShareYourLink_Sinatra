@@ -1,7 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link type="text/css" rel="stylesheet" href="public/css/bootstrap.css"/>
+<script src="public/js/jquery-1.12.2.min.js"></script>
+<script src="public/js/bootstrap.js"></script>
+
+<style>
+  .container {
+    background-color:lightgray;
+    margin-top:30px;
+    padding-bottom:30px;
+   }
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/public/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/public/js/bootstrap.min.js"></script>
+<title>Bootstrap Practice</title>
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">My Links</a>
+    </div>
+    
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"><font color = "orange"> Home </font></a></li>
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      About <span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+      <li><a href="#"></a>.</li>
+    </u>
+      
+    
+    
+
+  </ul>
+  </div>
+</nav>
+
+
+
+
+
 <ul>
 <% @links.each do |link| %>
  <li>
-   <p><iframe width="100" height="100" src="<%= link.link %>" frameborder="0" allowfullscreen></iframe></p>
    <p><a href="<%= link.link %>"><%= link.link %></a> from <%= link.author %></p>
    <p><%= link.comment %></p> 
  </li>
@@ -9,3 +59,8 @@
 </ul>
 
 <p><a href="/create">Add Link</a></p>
+
+
+</body>
+
+</html>
