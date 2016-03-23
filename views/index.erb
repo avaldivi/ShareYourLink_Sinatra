@@ -49,11 +49,18 @@
 
 <ul>
 <% @links.each do |link| %>
- <li>
-   <iframe width="560" height="315" src="<%= link.link %>" frameborder="0" allowfullscreen></iframe>
-   <p><a href="<%= link.link %>"><%= link.link %></a> from <%= link.author %></p>
-   <p><%= link.comment %></p> 
- </li>
+ 
+   
+   <div class="media">
+  <div class="media-left">
+    <a href="<%= link.link %>"> <img class="media-object" src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="..."> </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link.author %></h4>
+     <p><%= link.comment %></p>
+  </div>
+  
+
 <% end %>
 </ul>
 
