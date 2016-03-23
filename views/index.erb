@@ -45,10 +45,12 @@
 
 <div class="container">
 
+<h1>List of YouTube Links</h1>
 
 <ul>
 <% @links.each do |link| %>
  <li>
+   <iframe width="560" height="315" src="<%= link.link %>" frameborder="0" allowfullscreen></iframe>
    <p><a href="<%= link.link %>"><%= link.link %></a> from <%= link.author %></p>
    <p><%= link.comment %></p> 
  </li>
