@@ -25,6 +25,10 @@ get '/create' do
   erb :create
 end
 
+get '/about' do
+  erb :about
+end
+
 post '/create' do
   link = Link.new(params[:link])
   if link.save
