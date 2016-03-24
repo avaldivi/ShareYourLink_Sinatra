@@ -16,12 +16,10 @@ ActiveRecord::Base.establish_connection(
 class Link < ActiveRecord::Base
 end
 
-class Comment < ActiveRecord::Base
-end
 
 get '/' do
   @links = Link.order("id DESC")
-  @comment_section= Comment.order("id DESC")
+  @comment_section= Link.order("id DESC")
   erb :index
 end
  
@@ -43,7 +41,7 @@ post '/create' do
 end
 
 post '/' do
-  new_c = Comment.new(params[:new_comment])
+  new_c = Link.new(params[:new_comment])
   if new_c.save
     redirect to "/"
   else
