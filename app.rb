@@ -18,7 +18,7 @@ end
 
 get '/' do
   @links = Link.order("id DESC")
-  @links_comments = Link.order("id DESC")
+  @comment_section= Link.order("id DESC")
   erb :index
 end
 
@@ -40,8 +40,8 @@ post '/create' do
 end
 
 post '/' do
-  comments = Link.new(params[:comment])
-  if comments.save
+  new_comment = Link.new(params[:new_comment])
+  if new_comment.save
     redirect to "/"
   else
     return "Invalid"
