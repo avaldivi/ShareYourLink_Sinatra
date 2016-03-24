@@ -18,6 +18,7 @@ end
 
 get '/' do
   @links = Link.order("id DESC")
+  @links_comments = LinkComment.order("id DESC")
   erb :index
 end
 
@@ -37,3 +38,13 @@ post '/create' do
     return "failure!"
   end
 end
+
+post '/' do
+  commentSection = LinkComment.new(params[:comment])
+  if commentSection.save
+    redirect to "/"
+  else
+    return "Invalid"
+  end
+end
+

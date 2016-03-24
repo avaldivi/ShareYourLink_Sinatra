@@ -56,6 +56,15 @@
      <p><%= link.comment %></p>
   </div>
   
+  <form action="/" method="POST">
+   Comment: <input type="text" name="commentSection[comment]"><br/>
+    <input type="submit" class="btn btn-info" value="Submit">
+ </form>
+ 
+ <% @links_comments.each do |comments| %>
+  <p><%= comments.comment %></p>
+ <% end %>
+  
 
 <% end %>
 </ul>
