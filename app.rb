@@ -24,7 +24,7 @@ get '/' do
   @comment_section= Comment.order("id DESC")
   erb :index
 end
-
+ 
 get '/create' do
   erb :create
 end
@@ -43,8 +43,8 @@ post '/create' do
 end
 
 post '/' do
-  new_comment = Comment.new(params[:new_comment])
-  if new_comment.save
+  new_c = Comment.new(params[:new_comment])
+  if new_c.save
     redirect to "/"
   else
     return "Invalid"

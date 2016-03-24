@@ -45,27 +45,27 @@
 
 <ul>
 <% @links.each do |link| %>
- 
-   
-   <div class="media">
-  <div class="media-left">
-    <a href="<%= link.link %>"> <img class="media-object" src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="..." height="100" width="100"> </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading"><%= link.author %></h4>
-     <p><%= link.comment %></p>
-  </div>
-  
-  <form action="/" method="POST">
-   Comment: <input type="text" name="new_comment[new_comment]"><br/>
-    <input type="submit" class="btn btn-info" value="Submit">
- </form>
- 
- <% @comment_section.each do |new_comment| %>
-  <p><%= new_comment.new_comment %></p>
- <% end %>
-  
 
+  <div class="media">
+      <div class="media-left">
+        <a href="<%= link.link %>"> <img class="media-object" src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="..." height="100" width="100"> </a>
+  </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link.author %></h4>
+        <p><%= link.comment %></p>
+      </div>
+  
+  <u>
+  <form action="/" method="POST">
+   Comment: <input type="text" name="new_c[new_comment]"><br/>
+    <input type="submit" class="btn btn-info" value="Submit">
+  </form>
+ 
+   <% @comment_section.each do |new_c| %>
+    <p><%= new_c.new_comment %></p>
+   <% end %>
+ </u>
+  
 <% end %>
 </ul>
 
