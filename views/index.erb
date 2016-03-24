@@ -57,12 +57,12 @@
   
   <u>
   <form action="/" method="POST">
-   Comment: <input type="text" name="new_c[new_comment]"><br/>
+   Comment: <input type="text" name="new_comment[new_comment]"><br/>
     <input type="submit" class="btn btn-info" value="Submit">
   </form>
  
-   <% @comment_section.each do |new_c| %>
-    <p><%= new_c.new_comment %></p>
+   <% @comment_section.each do |new_comment| %>
+    <p><%= new_comment.new_comment %></p>
    <% end %>
  </u>
   

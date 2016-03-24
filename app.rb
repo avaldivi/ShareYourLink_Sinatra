@@ -16,10 +16,13 @@ ActiveRecord::Base.establish_connection(
 class Link < ActiveRecord::Base
 end
 
+class Section < ActiveRecord::Base
+end
+
 
 get '/' do
   @links = Link.order("id DESC")
-  @comment_section= Link.order("id DESC")
+  @comment_section= Section.order("id DESC")
   erb :index
 end
  
@@ -41,8 +44,8 @@ post '/create' do
 end
 
 post '/' do
-  new_c = Link.new(params[:new_comment])
-  if new_c.save
+  new_comment = Section.new(params[:new_comment])
+  if new_comment.save
     redirect to "/"
   else
     return "Invalid"
