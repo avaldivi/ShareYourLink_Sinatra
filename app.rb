@@ -14,15 +14,20 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Link < ActiveRecord::Base
+  has_many :comments  
+  validates_presence_of :author
+  validates_uniqueness_of :link
+  validates_presence_of :comment
 end
 
-class Section < ActiveRecord::Base
+class Comment < ActiveRecord::Base
+  belongs_to :links
+  validates_presence_of :comment
 end
 
 
 get '/' do
   @links = Link.order("id DESC")
-  @comment_section= Section.order("id DESC")
   erb :index
 end
  
@@ -30,9 +35,10 @@ get '/create' do
   erb :create
 end
 
-get '/about' do
-  erb :about
+get '/add_comment' do
+  erb :comment
 end
+
 
 post '/create' do
   link = Link.new(params[:link])
@@ -43,12 +49,22 @@ post '/create' do
   end
 end
 
-post '/' do
-  new_comment = Section.new(params[:new_comment])
-  if new_comment.save
+post '/add_comment' do
+  comment = Comment.new(params[:comment])
+  if comment.save
     redirect to "/"
   else
-    return "Invalid"
+    return "failure!"
   end
 end
+
+get '/comment/:id' do
+  @link_comments = Comment.where(link_id:params[:id].to_i)
+end
+
+def refresh_comments(id)
+  Comment.where(link_id: id)
+end
+
+
 

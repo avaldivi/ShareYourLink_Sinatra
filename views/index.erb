@@ -54,22 +54,31 @@
         <h4 class="media-heading"><%= link.author %></h4>
         <p><%= link.comment %></p>
       </div>
+      <hr>
+      
+     <form action="/add_comment" method="POST">
+     <input type="hidden" name="comment[link_id]" value=<%= link.id %>>
+     <label for="comment">Author:</label>
+      <textarea class="form-control" rows="1" name="comment[author]"></textarea>
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" name="comment[comment]"></textarea>
+     <input type="submit" class="btn btn-primary" value="Submit">
+   </form>
+   
+   <% refresh_comments(link.id).each do |comment| %>
+      <% if comment.author == ""%>
+        <p><u>Anonymous says:</u></p>
+      <% else %>
+        <p><u><%= comment.author %> says:</u></p>
+      <% end %>
+     <p><i><%= comment.comment %></i></p>
+    <% end %>
   
-  <u>
-  <form action="/" method="POST">
-   Comment: <input type="text" name="new_comment[new_comment]"><br/>
-    <input type="submit" class="btn btn-info" value="Submit">
-  </form>
- 
-   <% @comment_section.each do |new_comment| %>
-    <p><%= new_comment.new_comment %></p>
-   <% end %>
- </u>
   
 <% end %>
 </ul>
 
-<a href="/create" class="btn btn-info" role="button">Add More</a>
+<a href="/create" class="btn btn-danger" role="button">Add More Links</a>
 </div>
 
 </body>
