@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# mylinks
+# ShareYourLink_Sinatra
 A toy Sinatra app that collects YouTube links from users
 
 # How to install Postgresql in c9.io
@@ -35,8 +34,3 @@ psql
 
 \d – show all tables
 
-
-=======
-# ShareYourLink_Sinatra
-Webapp that allows you to share youtube links and have different people comment on each link. This website runs with Sinatra and hosted on Heroku.
->>>>>>> 58025a89f2a18a63834fccd0a1f131adcdd01507
