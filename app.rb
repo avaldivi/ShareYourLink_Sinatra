@@ -23,6 +23,7 @@ end
 class Comment < ActiveRecord::Base
   belongs_to :links
   validates_presence_of :comment
+  validates_presence_of :author
 end
 
 
