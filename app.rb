@@ -44,13 +44,17 @@ get '/add_comment' do
   erb :comment
 end
 
+get '/error' do
+  erb :error
+end
+
 
 post '/create' do
   link = Link.new(params[:link])
   if link.save
     redirect to "/"
   else
-    return "failure!"
+     redirect to "/error"
   end
 end
 
@@ -59,7 +63,7 @@ post '/add_comment' do
   if comment.save
     redirect to "/"
   else
-    return "failure!"
+     redirect to "/error"
   end
 end
 
