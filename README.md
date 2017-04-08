@@ -1,36 +1,29 @@
-# ShareYourLink_Sinatra
-A toy Sinatra app that collects YouTube links from users
+# Share your link.
 
-# How to install Postgresql in c9.io
+'Basic' set up environment instructions:
 
-## update apt-get repositories list
-sudo apt-get update
+ 1. `git clone https://github.com/avaldivi/ShareYourLink_Sinatra.git`
+ 2. `cd ShareYourLink_Sinatra`
+ 3. Install postgres on local machine
+ 4. change database.yml file (username, password)
+ 5. `bundle install`
+ 6. access psql console with `psql`
+ 7. `CREATE DATABASE mylinks;`
+ 8. CMD+D to exit psql console on macbook
+ 9. `rake db:migrate`
+ 10. `ruby app.rb`
 
-## remove postgresql
-sudo apt-get remove --purge postgresql-9.3
+## About
 
-## install postgresql
-sudo apt-get install postgresql-9.3
+ Created a toy web app in my Software Development II class to practice ruby, prostres, REST services (post,get). Originally worked on the project from a [C9 environment](c9.io). I continued the project to mess with the front-end part of things and add new features.
+ 
+## Credits
 
-## become user 'postgres'
-sudo su postgres
+My Software Development II professor: [@tacksoo](https://github.com/tacksoo)
 
-## create user 'ubuntu'
-createuser ubuntu –interactive
 
-## exit out of current shell
-exit
+## Contact
 
-## become user postgres
-sudo su – postgres
-
-## use postgresql console
-psql
-
-## psql commands
-\l - list
-
-\c – connect to database
-
-\d – show all tables
+* email: adrianna.valdivia@gmail.com
+* twitter: [@adriannavaldivi](https://twitter.com/adrianavaldivi)
 
