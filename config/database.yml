@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: mylinks
+  username: adriannavaldivi
+  password: <%= ENV['PG_PASS'] %>
+  host: localhost
