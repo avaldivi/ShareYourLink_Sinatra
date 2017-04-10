@@ -16,6 +16,15 @@ div.example img {
     height: 200px;
 }
 
+@media only screen and (max-width: 768px) {
+
+    div.example img {
+        display: inline-block;
+        width: 210px;
+        height: 150px;
+    }
+}
+
 /* --------------------------------
 
 Accordion components
