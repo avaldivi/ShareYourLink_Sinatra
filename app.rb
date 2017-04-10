@@ -22,7 +22,7 @@ end
 
   get '/' do
     @links = Link.order("id DESC")
-    erb :index
+    erb :home
   end
 
   get "/about" do

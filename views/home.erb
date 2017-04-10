@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cssgrid.css"><!-- Resource style -->
+  <script src="/js/modernizr.js"></script><!-- Modernizr -->
+
+  <title>Share Your Link</title>
+</head>
+<body>
+<header>
+  <h1>Share your link.</h1>
+</header>
+<div class="cd-tabs">
+  <nav>
+    <ul class="cd-tabs-navigation">
+      <li> <a data-content="links" class="selected fa fa-file-code-o" href="#link">  Links </a></li>
+      <li><a data-content="add" class="fa fa-plus-square-o" href="#add">Add New</a></li>
+      <li><a data-content="about" class="fa fa-id-card-o" href="#about">About</a></li>
+    </ul> <!-- cd-tabs-navigation -->
+  </nav>
+
+  <ul class="cd-tabs-content" style="overflow:hidden">
+    <li data-content="links" class="selected">
+      <p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+
+      <!-- Link title and description -->
+      <% @links.each do |link| %>
+          <div class="content">
+            <a href="<%= link.link %>"><img src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="alter" height="100" width="100"></a>
+            <h3><%= link.author %></h3>
+            <p><%= link.comment %></p>
+
+            <!-- Button to add and view comments -->
+            <button class="accordion">Add/View Comments</button>
+            <div class="panel">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+              <!-- Add comment form -->
+              <div class="form">
+                <form action="/add_comment" method="POST">
+                  <input type="hidden" name="comment[link_id]" value=<%= link.id %>>
+                  <label for="author">Author:</label>
+                  <input type="text" name="comment[author]" placeholder="Anonymous or your name">
+
+                  <label for="comment">Comment:</label>
+                  <textarea class="form-control" rows="5" name="comment[comment]" placeholder="this is awesome!"></textarea>
+
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+
+              <!-- Comments -->
+              <% refresh_comments(link.id).each do |comment| %>
+                  <% if comment.author == ""%>
+                      <p><u>Anonymous says:</u></p>
+                  <% else %>
+                      <p><u><%= comment.author %> says:</u></p>
+                  <% end %>
+                  <p><i><%= comment.comment %></i></p>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+      <% end %>
+    </li>
+
+    <li data-content="add">
+      <p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>
+
+      <div class="form">
+        <form action="/create" method="POST">
+          <label for="fname">Author:</label>
+          <input type="text" name="link[author]" placeholder="Anonymous or your name">
+
+          <label for="lname">Link:</label>
+          <input type="text" name="link[link]" placeholder="http://whatever.com">
+
+          <label for="lname">Caption:</label>
+          <input type="text" name="link[comment]" placeholder="Describe me!">
+
+          <input type="submit" value="Add Link">
+        </form>
+      </div>
+
+      </li>
+
+            <li data-content="about">
+              <p>Share you link is a ruby sinatra web app hosted on Heroku and using postgreSQL as the database.
+                Created originally for my Software Development II course and I just continued to build on it for practice on the front-end.</p>
+
+              <p>Below is what it looked like before April 2017.</p>
+
+              <div class="example">
+                <img src="/images/syl_home.png" alt="Old Home for SYL"  />
+                <img src="/images/syl_link.png" alt="New Link Form"  />
+              </div>
+
+              <br/>
+
+              <div class="content">
+                <a href="http://adrianna.tech"><img src="/images/about_pic_syl.JPG" alt="alter" height="100" width="100"></a>
+                <h3>Adrianna Valdivia</h3>
+                <p>Junior Front-End Devloper</p>
+              </div>
+
+            </li>
+  </ul> <!-- cd-tabs-content -->
+</div> <!-- cd-tabs -->
+
+<!--footer -->
+<div class="footer">
+  <p> Made with <i class="fa fa-heart"></i> - © Adrianna Valdivia 2017 </p>
+</div>
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
