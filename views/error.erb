@@ -1,56 +1,65 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-  
-<link type="text/css" rel="stylesheet" href="public/css/bootstrap.css"/>
-<script src="public/js/jquery-1.12.2.min.js"></script>
-<script src="public/js/bootstrap.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  .container {
-    background-color:lightgray;
-    margin-top:30px;
-    padding-bottom:30px;
-   }
-</style>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<title>My Links</title>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="/css/style.css"><!-- Resource style -->
+  <script src="/js/modernizr.js"></script><!-- Modernizr -->
+
+  <title>Share Your Link</title>
 </head>
-
 <body>
-  
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">My Links</a>
-    </div>
-    
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/"><font color = "red"> Home </font></a></li>
-      <li class="active"><a href="/about"><font color = "red"> About </font></a></li>
-    </u>
-      
-    
-    
+<header>
+  <h1>Share your link.</h1>
+</header>
+<div class="cd-tabs">
+  <nav>
+    <ul class="cd-tabs-navigation">
+      <li><a data-content="links" class="selected fa fa-file-code-o" href="#link"> Error </a></li>
+    </ul> <!-- cd-tabs-navigation -->
+  </nav>
 
-  </ul>
-  </div>
-</nav>
+  <ul class="cd-tabs-content">
+    <li data-content="links" class="selected">
+      <h2>Oops!</h2>
+      <br/>
+      <br/>
+      <p>Looks like you forgot to add something to your form.</p>
+      <p>You can go back <a href="/">here.</a> Don't mess up next time. </p>
+    </li>
 
+    </li>
+  </ul> <!-- cd-tabs-content -->
+</div> <!-- cd-tabs -->
 
-<div class="container">
-  
-  <h1> Error </h1>
-  <p><h3>You have either not entered an author, link, or comment when submitting a link or comment. Pleast try again.</h3> </p>
-
-
-
-<p><a href="/">Home</a></p>
-
-
+<!--footer -->
+<div class="footer">
+  <p> Made with <i class="fa fa-heart"></i> - © Adrianna Valdivia 2017 </p>
 </div>
 
-</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
 
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        }
+    }
+</script>
+
+</body>
 </html>

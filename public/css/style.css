@@ -1,3 +1,11 @@
+h2 {
+    color: #8493BF;
+    font-size: 8em;
+}
+b {
+    font-weight: bold;
+}
+
 div.example {
     text-align: center;
 }
@@ -16,7 +24,7 @@ Accordion components
 button.accordion {
     width: 100%;
     background-color: #F8F7EE;
-    color: black;
+    color: #c3c2b9;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -24,10 +32,13 @@ button.accordion {
     cursor: pointer;
     font-size: 15px;
     transition: 0.4s;
+    font-family: "PT Sans", sans-serif;
 }
 
 button.accordion.active, button.accordion:hover {
-    background-color: #94948e;
+    color: #029BC9;
+    background-color: rgba(233, 230, 202, 0.3);
+    font-family: "PT Sans", sans-serif;
 }
 
 div.panel {
@@ -60,7 +71,6 @@ Form components
 -------------------------------- */
 label {
     color: #8493BF;
-
 }
 
 textarea, input[type=text], select {
@@ -152,6 +162,12 @@ div.footer {
     width:100%;
     text-align:center;
     height: 40px;
+}
+
+div.cd-tabs {
+    border-radius: 5px;
+    background-color: #C6C5BE;
+    padding: 20px;
 }
 
 .cd-tabs {
@@ -342,6 +358,7 @@ div.footer {
     -webkit-animation: cd-fade-in 0.5s;
     -moz-animation: cd-fade-in 0.5s;
     animation: cd-fade-in 0.5s;
+    height: 100%;
 }
 .cd-tabs-content li p {
     font-size: 14px;
@@ -352,7 +369,7 @@ div.footer {
 }
 @media only screen and (min-width: 768px) {
     .cd-tabs-content {
-        min-height: 480px;
+
     }
     .cd-tabs-content li {
         padding: 2em 2em 2em 7em;

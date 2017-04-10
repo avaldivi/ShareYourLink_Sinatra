@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/cssgrid.css"><!-- Resource style -->
   <script src="/js/modernizr.js"></script><!-- Modernizr -->
 
   <title>Share Your Link</title>
@@ -20,27 +19,31 @@
 <div class="cd-tabs">
   <nav>
     <ul class="cd-tabs-navigation">
-      <li> <a data-content="links" class="selected fa fa-file-code-o" href="#link">  Links </a></li>
+      <li><a data-content="links" class="selected fa fa-file-code-o" href="#link"> Links </a></li>
       <li><a data-content="add" class="fa fa-plus-square-o" href="#add">Add New</a></li>
       <li><a data-content="about" class="fa fa-id-card-o" href="#about">About</a></li>
     </ul> <!-- cd-tabs-navigation -->
   </nav>
 
-  <ul class="cd-tabs-content" style="overflow:hidden">
+  <ul class="cd-tabs-content">
     <li data-content="links" class="selected">
-      <p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+      <p><b>Welcome!</b> Below are links. In the future the option to upload pictures will be available. In order to <b>add a link, select the second tab</b>.
+        For each link, you can comment with your preferred name or if you leave blank, it will automatically be <b>anonymous</b>
+        If you have <b>questions, check the 'about' tab.</b> </p>
+
+        <p>Think of this web app as a file cabinet for link sharing :)</p>
 
       <!-- Link title and description -->
       <% @links.each do |link| %>
           <div class="content">
-            <a href="<%= link.link %>"><img src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="alter" height="100" width="100"></a>
+            <a href="<%= link.link %>" target="_blank"><img src="http://a4.mzstatic.com/us/r30/Purple3/v4/d6/e4/12/d6e41207-d0ee-96c5-6f9d-e789c6e4caf7/icon128-2x.png" alt="alter" height="100" width="100"></a>
             <h3><%= link.author %></h3>
             <p><%= link.comment %></p>
 
             <!-- Button to add and view comments -->
             <button class="accordion">Add/View Comments</button>
             <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p></p>
 
               <!-- Add comment form -->
               <div class="form">
@@ -58,7 +61,7 @@
 
               <!-- Comments -->
               <% refresh_comments(link.id).each do |comment| %>
-                  <% if comment.author == ""%>
+                  <% if comment.author == "" %>
                       <p><u>Anonymous says:</u></p>
                   <% else %>
                       <p><u><%= comment.author %> says:</u></p>
@@ -72,7 +75,8 @@
     </li>
 
     <li data-content="add">
-      <p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>
+      <p>In order to add a new link to the list of links, <b>fill the form below</b>.
+        In the future I would like to give the option to upload a picture instead of the default. If you have more questions, check out the '<b>about</b>' tab</p>
 
       <div class="form">
         <form action="/create" method="POST">
@@ -89,28 +93,32 @@
         </form>
       </div>
 
-      </li>
+    </li>
 
-            <li data-content="about">
-              <p>Share you link is a ruby sinatra web app hosted on Heroku and using postgreSQL as the database.
-                Created originally for my Software Development II course and I just continued to build on it for practice on the front-end.</p>
+    <li data-content="about">
+      <p><b>Share your link</b> is a Ruby Sinatra toy web app hosted on <a href="https://heroku.com" target="_blank">Heroku</a>
+        and using <a href="https://www.postgresql.org" target="_blank">postgreSQL</a> as the database.
+        Created originally for my Software Development II course Fall 2015 and I just continued to build on it for practice on the
+        front-end.</p>
 
-              <p>Below is what it looked like before April 2017.</p>
+      <p>Below is what it looked like before April 2017.</p>
 
-              <div class="example">
-                <img src="/images/syl_home.png" alt="Old Home for SYL"  />
-                <img src="/images/syl_link.png" alt="New Link Form"  />
-              </div>
+      <div class="example">
+        <img src="/images/syl_home.png" alt="Old Home for SYL"/>
+        <img src="/images/syl_link.png" alt="New Link Form"/>
+      </div>
 
-              <br/>
+      <br/>
 
-              <div class="content">
-                <a href="http://adrianna.tech"><img src="/images/about_pic_syl.JPG" alt="alter" height="100" width="100"></a>
-                <h3>Adrianna Valdivia</h3>
-                <p>Junior Front-End Devloper</p>
-              </div>
+      <div class="content">
+        <a href="http://adrianna.tech" target="_blank"><img src="/images/about_pic_syl.JPG" alt="alter" height="100" width="100"></a>
+        <h3>Adrianna Valdivia</h3>
+        <p>Junior Front-End Devloper</p>
+        <p>Would you like to <a href="https://github.com/avaldivi/ShareYourLink_Sinatra" target="_blank">fork this repo</a>
+          ? or would you like to <a href="https://github.com/avaldivi/ShareYourLink_Sinatra/issues" target="_blank">notify me of an issue</a> ?</p>
+      </div>
 
-            </li>
+    </li>
   </ul> <!-- cd-tabs-content -->
 </div> <!-- cd-tabs -->
 
@@ -127,7 +135,7 @@
     var i;
 
     for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
+        acc[i].onclick = function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
